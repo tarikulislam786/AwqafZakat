@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AwqafZakatModelsStoreContainer" CdmEntityContainer="AwqafZakatEntities">
+    <EntitySetMapping Name="tblAdminRegistrations">
+      <EntityTypeMapping TypeName="AwqafZakatModels.tblAdminRegistration">
+        <MappingFragment StoreEntitySet="tblAdminRegistrations">
+          <ScalarProperty Name="adminRegistrationID" ColumnName="adminRegistrationID" />
+          <ScalarProperty Name="administratorNumber" ColumnName="administratorNumber" />
+          <ScalarProperty Name="registrationDateHijri" ColumnName="registrationDateHijri" />
+          <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+          <ScalarProperty Name="tripleNameTribe" ColumnName="tripleNameTribe" />
+          <ScalarProperty Name="civilNumber" ColumnName="civilNumber" />
+          <ScalarProperty Name="railNumber" ColumnName="railNumber" />
+          <ScalarProperty Name="homeNumber" ColumnName="homeNumber" />
+          <ScalarProperty Name="mosqueName" ColumnName="mosqueName" />
+          <ScalarProperty Name="regionName" ColumnName="regionName" />
+          <ScalarProperty Name="supervisorWhatsapp" ColumnName="supervisorWhatsapp" />
+          <ScalarProperty Name="supervisorOfficePhone" ColumnName="supervisorOfficePhone" />
+          <ScalarProperty Name="supervisorHomePhone" ColumnName="supervisorHomePhone" />
+          <ScalarProperty Name="relativeName" ColumnName="relativeName" />
+          <ScalarProperty Name="relativePhone" ColumnName="relativePhone" />
+          <ScalarProperty Name="assistantName" ColumnName="assistantName" />
+          <ScalarProperty Name="assistantPhone" ColumnName="assistantPhone" />
+          <ScalarProperty Name="adminIdCard" ColumnName="adminIdCard" />
+          <ScalarProperty Name="assistantIdCard" ColumnName="assistantIdCard" />
+          <ScalarProperty Name="chairmanName" ColumnName="chairmanName" />
+          <ScalarProperty Name="vchairmanName" ColumnName="vchairmanName" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="hardcopyAttach" ColumnName="hardcopyAttach" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEducationLevels">
+      <EntityTypeMapping TypeName="AwqafZakatModels.tblEducationLevel">
+        <MappingFragment StoreEntitySet="tblEducationLevels">
+          <ScalarProperty Name="educationLevelID" ColumnName="educationLevelID" />
+          <ScalarProperty Name="educationLevelName" ColumnName="educationLevelName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFamilyDeletions">
+      <EntityTypeMapping TypeName="AwqafZakatModels.tblFamilyDeletion">
+        <MappingFragment StoreEntitySet="tblFamilyDeletions">
+          <ScalarProperty Name="familyDeletionID" ColumnName="familyDeletionID" />
+          <ScalarProperty Name="familyRegID" ColumnName="familyRegID" />
+          <ScalarProperty Name="deletionDate" ColumnName="deletionDate" />
+          <ScalarProperty Name="familyName" ColumnName="familyName" />
+          <ScalarProperty Name="deletionReason" ColumnName="deletionReason" />
+          <ScalarProperty Name="familyIncomeAtDel" ColumnName="familyIncomeAtDel" />
+          <ScalarProperty Name="adminName" ColumnName="adminName" />
+          <ScalarProperty Name="chairmanName" ColumnName="chairmanName" />
+          <ScalarProperty Name="vchairmanName" ColumnName="vchairmanName" />
+          <ScalarProperty Name="hardcopyAttach" ColumnName="hardcopyAttach" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFamilymemberDetails">
+      <EntityTypeMapping TypeName="AwqafZakatModels.tblFamilymemberDetail">
+        <MappingFragment StoreEntitySet="tblFamilymemberDetails">
+          <ScalarProperty Name="memberID" ColumnName="memberID" />
+          <ScalarProperty Name="familyRegID" ColumnName="familyRegID" />
+          <ScalarProperty Name="educationLevelID" ColumnName="educationLevelID" />
+          <ScalarProperty Name="familymembername" ColumnName="familymembername" />
+          <ScalarProperty Name="memberCivilNumber" ColumnName="memberCivilNumber" />
+          <ScalarProperty Name="case" ColumnName="case" />
+          <ScalarProperty Name="relativerelation" ColumnName="relativerelation" />
+          <ScalarProperty Name="educationalInstitute" ColumnName="educationalInstitute" />
+          <ScalarProperty Name="memberNotes" ColumnName="memberNotes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFamilyPropertyDetails">
+      <EntityTypeMapping TypeName="AwqafZakatModels.tblFamilyPropertyDetail">
+        <MappingFragment StoreEntitySet="tblFamilyPropertyDetails">
+          <ScalarProperty Name="familyPropertyDetailID" ColumnName="familyPropertyDetailID" />
+          <ScalarProperty Name="familyRegID" ColumnName="familyRegID" />
+          <ScalarProperty Name="familyProperty" ColumnName="familyProperty" />
+          <ScalarProperty Name="numOfProperty" ColumnName="numOfProperty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFamilyRegistrations">
+      <EntityTypeMapping TypeName="AwqafZakatModels.tblFamilyRegistration">
+        <MappingFragment StoreEntitySet="tblFamilyRegistrations">
+          <ScalarProperty Name="familyRegID" ColumnName="familyRegID" />
+          <ScalarProperty Name="familyRegNumber" ColumnName="familyRegNumber" />
+          <ScalarProperty Name="registrationDateHijri" ColumnName="registrationDateHijri" />
+          <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+          <ScalarProperty Name="nextUpdationDate" ColumnName="nextUpdationDate" />
+          <ScalarProperty Name="ecoordinate" ColumnName="ecoordinate" />
+          <ScalarProperty Name="ncoordinate" ColumnName="ncoordinate" />
+          <ScalarProperty Name="tripleNameTribe" ColumnName="tripleNameTribe" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="relationshipOfKinship" ColumnName="relationshipOfKinship" />
+          <ScalarProperty Name="education" ColumnName="education" />
+          <ScalarProperty Name="civilNumber" ColumnName="civilNumber" />
+          <ScalarProperty Name="occupation" ColumnName="occupation" />
+          <ScalarProperty Name="socialStatus" ColumnName="socialStatus" />
+          <ScalarProperty Name="region" ColumnName="region" />
+          <ScalarProperty Name="village" ColumnName="village" />
+          <ScalarProperty Name="numberOfFamilyMember" ColumnName="numberOfFamilyMember" />
+          <ScalarProperty Name="railwayNumber" ColumnName="railwayNumber" />
+          <ScalarProperty Name="mosque" ColumnName="mosque" />
+          <ScalarProperty Name="houseNumber" ColumnName="houseNumber" />
+          <ScalarProperty Name="nationality" ColumnName="nationality" />
+          <ScalarProperty Name="officePhone" ColumnName="officePhone" />
+          <ScalarProperty Name="homePhone" ColumnName="homePhone" />
+          <ScalarProperty Name="whatsapp" ColumnName="whatsapp" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+          <ScalarProperty Name="document" ColumnName="document" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="numberOfOrphan" ColumnName="numberOfOrphan" />
+          <ScalarProperty Name="receiveSubsidy" ColumnName="receiveSubsidy" />
+          <ScalarProperty Name="subsidyState" ColumnName="subsidyState" />
+          <ScalarProperty Name="numberOfSpecialNeed" ColumnName="numberOfSpecialNeed" />
+          <ScalarProperty Name="supervisorName" ColumnName="supervisorName" />
+          <ScalarProperty Name="supervisorAreaVillage" ColumnName="supervisorAreaVillage" />
+          <ScalarProperty Name="supervisorPhone" ColumnName="supervisorPhone" />
+          <ScalarProperty Name="supervisorMosque" ColumnName="supervisorMosque" />
+          <ScalarProperty Name="supervisorObservedData" ColumnName="supervisorObservedData" />
+          <ScalarProperty Name="familyPerCapitaIncome" ColumnName="familyPerCapitaIncome" />
+          <ScalarProperty Name="isFamilyWorthy" ColumnName="isFamilyWorthy" />
+          <ScalarProperty Name="officialNotes" ColumnName="officialNotes" />
+          <ScalarProperty Name="chairmanName" ColumnName="chairmanName" />
+          <ScalarProperty Name="vchairmanName" ColumnName="vchairmanName" />
+          <ScalarProperty Name="hardcopyAttach" ColumnName="hardcopyAttach" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFamilySpecialNeeds">
+      <EntityTypeMapping TypeName="AwqafZakatModels.tblFamilySpecialNeed">
+        <MappingFragment StoreEntitySet="tblFamilySpecialNeeds">
+          <ScalarProperty Name="familySpecialNeedId" ColumnName="familySpecialNeedId" />
+          <ScalarProperty Name="familyRegID" ColumnName="familyRegID" />
+          <ScalarProperty Name="familySpecialneed" ColumnName="familySpecialneed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFamilyTransfers">
+      <EntityTypeMapping TypeName="AwqafZakatModels.tblFamilyTransfer">
+        <MappingFragment StoreEntitySet="tblFamilyTransfers">
+          <ScalarProperty Name="familyTransferID" ColumnName="familyTransferID" />
+          <ScalarProperty Name="familyRegID" ColumnName="familyRegID" />
+          <ScalarProperty Name="transferDate" ColumnName="transferDate" />
+          <ScalarProperty Name="ecoordinate" ColumnName="ecoordinate" />
+          <ScalarProperty Name="ncoordinate" ColumnName="ncoordinate" />
+          <ScalarProperty Name="oldRegion" ColumnName="oldRegion" />
+          <ScalarProperty Name="newRegion" ColumnName="newRegion" />
+          <ScalarProperty Name="oldVillage" ColumnName="oldVillage" />
+          <ScalarProperty Name="newVillage" ColumnName="newVillage" />
+          <ScalarProperty Name="oldRailNumber" ColumnName="oldRailNumber" />
+          <ScalarProperty Name="newRailNumber" ColumnName="newRailNumber" />
+          <ScalarProperty Name="oldHomeNumber" ColumnName="oldHomeNumber" />
+          <ScalarProperty Name="newHomeNumber" ColumnName="newHomeNumber" />
+          <ScalarProperty Name="oldMosque" ColumnName="oldMosque" />
+          <ScalarProperty Name="newMosque" ColumnName="newMosque" />
+          <ScalarProperty Name="oldMobile" ColumnName="oldMobile" />
+          <ScalarProperty Name="oldTelephone" ColumnName="oldTelephone" />
+          <ScalarProperty Name="newMobile" ColumnName="newMobile" />
+          <ScalarProperty Name="newTelephone" ColumnName="newTelephone" />
+          <ScalarProperty Name="prevAdmin" ColumnName="prevAdmin" />
+          <ScalarProperty Name="prevAdminPhone" ColumnName="prevAdminPhone" />
+          <ScalarProperty Name="currentAdmin" ColumnName="currentAdmin" />
+          <ScalarProperty Name="currentAdminPhone" ColumnName="currentAdminPhone" />
+          <ScalarProperty Name="chairmanName" ColumnName="chairmanName" />
+          <ScalarProperty Name="vchairmanName" ColumnName="vchairmanName" />
+          <ScalarProperty Name="electricityAttach" ColumnName="electricityAttach" />
+          <ScalarProperty Name="hardcopyAttach" ColumnName="hardcopyAttach" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="AwqafZakatModels.tblUser">
+        <MappingFragment StoreEntitySet="tblUsers">
+          <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblFamilyIncomeExpenses">
+      <EntityTypeMapping TypeName="AwqafZakatModels.tblFamilyIncomeExpense">
+        <MappingFragment StoreEntitySet="tblFamilyIncomeExpense">
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="particular" ColumnName="particular" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="familyRegID" ColumnName="familyRegID" />
+          <ScalarProperty Name="familyIncomeExpenseID" ColumnName="familyIncomeExpenseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSettings">
+      <EntityTypeMapping TypeName="AwqafZakatModels.tblSetting">
+        <MappingFragment StoreEntitySet="tblSettings">
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="settingsName" ColumnName="settingsName" />
+          <ScalarProperty Name="settingsID" ColumnName="settingsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a0537e4096c3459fb81740968297063f" Name="Diagram1">
+        <EntityTypeShape EntityType="AwqafZakatModels.tblAdminRegistration" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AwqafZakatModels.tblEducationLevel" Width="1.5" PointX="3.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AwqafZakatModels.tblFamilyDeletion" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AwqafZakatModels.tblFamilymemberDetail" Width="1.5" PointX="6" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AwqafZakatModels.tblFamilyPropertyDetail" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AwqafZakatModels.tblFamilyRegistration" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AwqafZakatModels.tblFamilySpecialNeed" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AwqafZakatModels.tblFamilyTransfer" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <AssociationConnector Association="AwqafZakatModels.FK_tblFamilymemberDetails_tblEducationLevels" ManuallyRouted="false" />
+        <AssociationConnector Association="AwqafZakatModels.FK_tblFamilyDeletions_tblFamilyRegistrations" ManuallyRouted="false" />
+        <AssociationConnector Association="AwqafZakatModels.FK_tblFamilymemberDetails_tblFamilyRegistrations" ManuallyRouted="false" />
+        <AssociationConnector Association="AwqafZakatModels.FK_tblFamilyPropertyDetails_tblFamilyRegistrations" ManuallyRouted="false" />
+        <AssociationConnector Association="AwqafZakatModels.FK_tblFamilySpecialNeeds_tblFamilyRegistrations" ManuallyRouted="false" />
+        <AssociationConnector Association="AwqafZakatModels.FK_tblFamilyTransfers_tblFamilyRegistrations" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AwqafZakatModels.tblUser" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AwqafZakatModels.tblFamilyIncomeExpense" Width="1.5" PointX="3" PointY="9.5" />
+        <EntityTypeShape EntityType="AwqafZakatModels.tblSetting" Width="1.5" PointX="5.375" PointY="7.75" />
+        <AssociationConnector Association="AwqafZakatModels.FK_tblFamilyIncomeExpense_tblFamilyRegistrations" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AwqafZakat.Models.tblEducationLevel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<div class="reg-title" style="margin-bottom:20px;">
+    <h3>Education Level</h3>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Add")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.educationLevelID)
+            </th>*@
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.educationLevelName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.educationLevelID)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.educationLevelName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.educationLevelID }) |
+                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.educationLevelID })
+            </td>
+        </tr>
+    }
+
+</table>

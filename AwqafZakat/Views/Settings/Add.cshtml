@@ -1,0 +1,62 @@
+﻿@model AwqafZakat.Models.tblSetting
+
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm("Add", "Settings", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+       
+        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.settingsID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.settingsID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.settingsID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-push-1">
+                @Html.EditorFor(model => model.settingsName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.settingsName, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.settingsName, htmlAttributes: new { @class = "control-label col-sm-3" })
+        </div>
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-push-1">
+                @Html.EditorFor(model => model.value, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.value, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.value, htmlAttributes: new { @class = "control-label col-sm-3" })
+        </div>
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-push-1">
+                @Html.EditorFor(model => model.notes, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.notes, "", new { @class = "text-danger" })
+            </div>
+            @Html.LabelFor(model => model.notes, htmlAttributes: new { @class = "control-label col-sm-3" })
+        </div>
+        
+            <div class="form-group">
+            <div class="col-sm-7"></div>
+            <div class="col-sm-3 col-sm-pull-2">
+                <div class="btn btn-default" style="color:black">
+                    @Html.ActionLink("Cancel", "Index")
+                </div>
+            </div>
+            <div class="col-sm-2 col-sm-pull-2">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

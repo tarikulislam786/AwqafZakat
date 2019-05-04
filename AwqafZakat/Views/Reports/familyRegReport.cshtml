@@ -1,0 +1,355 @@
+﻿@model IEnumerable<AwqafZakat.Models.tblFamilyRegistration>
+
+@{
+    ViewBag.Title = "Report";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<style>
+    .ui-datepicker td span,
+    .ui-datepicker td a {
+        padding-bottom: 1em;
+    }
+    .table > tbody > tr > td{
+        vertical-align:middle;
+    }
+    .ui-datepicker-title[data-custom] {
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+        .ui-datepicker-title[data-custom]::after {
+            color: green;
+            content: attr(data-custom);
+            display: block;
+            font-size: small;
+        }
+
+    .ui-datepicker td[title]::after {
+        content: attr(title);
+        display: block;
+        position: relative;
+        color: green;
+        font-size: .8em;
+        height: 1.25em;
+        margin-top: -1.25em;
+        text-align: right;
+        padding-right: .25em;
+    }
+    .file a{color:black;}
+     .file i{padding-left: 10px;font-size: 25px;}
+</style>
+<div class="reg-title" style="background:#4472C4;margin-bottom:20px;">
+    <h3>تقارير</h3>
+</div> 
+@*<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-3 col-sm-pull-2">
+            <select id="searchBy" class="form-control">
+                <option value="registrationNumber">Registration Number</option>
+                <option value="civilNumber">Civil Number</option>
+            </select>
+        </div>
+        <div class="col-sm-3 col-sm-pull-2">
+            <input type="text" name="txtSearch" id="txtSearch" class="form-control txtSearch" placeholder="Search" />
+        </div>
+        <div class="col-sm-1 col-sm-pull-1">
+            <input type="button" id="searchReport" value="البحث" class="btn btn-default" />
+        </div>
+
+        <label class="control-label col-sm-2"> البحث:</label>
+    </div>
+</div>*@
+
+
+<h3 style="text-align:center">Family Registration - reports</h3>
+<div class="table-responsive allRegistered">
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.familyRegID)
+        </th>*@
+        <th>
+            رقم الأسرة في النظام
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.registrationDateHijri)
+        </th>*@
+        <th>
+            تاريخ التسجيل (ه)
+        </th>
+        <th>
+            تاريخ التحديث القادم
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ecoordinate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ncoordinate)
+        </th>*@
+        <th>
+            الاسم الثلاثي والقبيلة
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.dob)
+        </th>*@
+        <th>
+            صلة القرابة 
+        </th>
+        <th>
+            المؤهل التعليمي
+        </th>
+        <th>
+            الرقم المدني
+        </th>
+        <th>
+            الوظيفة
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.socialStatus)
+        </th>*@
+        <th>
+            المنطقة
+        </th>
+        <th>
+            القرية
+        </th>
+        <th>
+            عدد أفراد الاســرة
+        </th>
+        <th>
+            رقم السكة
+        </th>
+        <th>
+            اسم أقرب مسجد من البيت
+        </th>
+        <th>
+            رقم المنزل
+        </th>
+        <th>
+            الجنسية
+        </th>
+        @*<th>
+            أرقام الهواتف
+        </th>*@
+        <th>
+            أرقام الهواتف
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.whatsapp)
+        </th>*@
+        <th>
+            اســــــــم البنك
+        </th>
+        <th>
+            رقم الحســـاب
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.document)
+        </th>*@
+        <th>
+            ملاحظات
+        </th>
+        @*<th>
+            هل يوجد في الأسرة يتيم؟
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.receiveSubsidy)
+        </th>*@
+        <th>
+            هل تستلم الأسرة إعانة من جهة أخرى؟
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.numberOfSpecialNeed)
+        </th>*@
+        <th>
+            الاســـــــــــــــــم
+        </th>
+        <th>
+            المنطقة والقرية
+        </th>
+        <th>
+            رقم الهاتف
+        </th>
+        <th>
+            المســـــــــــــجد
+        </th>
+        <th>
+            الملاحظــــــات
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.familyPerCapitaIncome)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.isFamilyWorthy)
+        </th>*@
+        <th>
+            الملاحظات
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.chairmanName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vchairmanName)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.hardcopyAttach)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.familyRegID)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.familyRegNumber)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.registrationDateHijri)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.registrationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nextUpdationDate)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ecoordinate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ncoordinate)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.tripleNameTribe)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.dob)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.relationshipOfKinship)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.education)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.civilNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.occupation)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.socialStatus)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.region)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.village)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numberOfFamilyMember)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.railwayNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mosque)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.houseNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nationality)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.officePhone)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.homePhone)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.whatsapp)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.bank)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accountNumber)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.document)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.notes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numberOfOrphan)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.receiveSubsidy)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.subsidyState)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.numberOfSpecialNeed)
+        </td>*@
+        <td>
+           
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.supervisorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.supervisorAreaVillage)
+        </td>
+        
+        <td>
+           @Html.DisplayFor(modelItem => item.supervisorPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.supervisorMosque)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.familyPerCapitaIncome)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.isFamilyWorthy)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.supervisorObservedData)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.chairmanName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vchairmanName)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.hardcopyAttach)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.officialNotes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+    </tr>
+}
+
+</table>
+</div>
+<div class="table-responsive singleRegistered">
+
+</div>
+    <div style="padding:10px;border:1px solid black;">
+        <div class="file"><i class="fa fa-file-pdf-o" style="color:#f00"></i><a href="@Url.Action("Report", new { id= "PDF"})">Get Report PDF</a></div>
+        <div class="file"><i class="fa fa-file-excel-o" style="color:green"></i><a href="@Url.Action("Report", new { id= "Excel"})"> Get Report Excel</a></div>
+        <div class="file"><i class="fa fa-file-word-o" style="color:darkblue"></i><a href="@Url.Action("Report", new { id= "Word"})"> Get Report Word</a></div>
+        <div class="file"><i class="fa fa-file-image-o" style="color:black"></i><a href="@Url.Action("Report", new { id= "Image"})">Get Report Image</a></div>
+    </div>

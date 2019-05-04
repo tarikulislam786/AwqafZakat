@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AwqafZakatModels.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblAdminRegistrations">
+    <Key>
+      <PropertyRef Name="adminRegistrationID" />
+    </Key>
+    <Property Name="adminRegistrationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="administratorNumber" Type="int" Nullable="false" />
+    <Property Name="registrationDateHijri" Type="date" />
+    <Property Name="registrationDate" Type="date" />
+    <Property Name="tripleNameTribe" Type="nvarchar" MaxLength="50" />
+    <Property Name="civilNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="railNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="homeNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="mosqueName" Type="nvarchar" MaxLength="100" />
+    <Property Name="regionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="supervisorWhatsapp" Type="nvarchar" MaxLength="50" />
+    <Property Name="supervisorOfficePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="supervisorHomePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="relativeName" Type="nvarchar" MaxLength="100" />
+    <Property Name="relativePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="assistantName" Type="nvarchar" MaxLength="100" />
+    <Property Name="assistantPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="adminIdCard" Type="nvarchar" MaxLength="100" />
+    <Property Name="assistantIdCard" Type="nvarchar" MaxLength="100" />
+    <Property Name="chairmanName" Type="nvarchar" MaxLength="100" />
+    <Property Name="vchairmanName" Type="nvarchar" MaxLength="100" />
+    <Property Name="notes" Type="nvarchar(max)" />
+    <Property Name="hardcopyAttach" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblEducationLevels">
+    <Key>
+      <PropertyRef Name="educationLevelID" />
+    </Key>
+    <Property Name="educationLevelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="educationLevelName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblFamilyDeletions">
+    <Key>
+      <PropertyRef Name="familyDeletionID" />
+    </Key>
+    <Property Name="familyDeletionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="familyRegID" Type="int" />
+    <Property Name="deletionDate" Type="date" />
+    <Property Name="familyName" Type="nvarchar" MaxLength="255" />
+    <Property Name="deletionReason" Type="nvarchar" MaxLength="255" />
+    <Property Name="familyIncomeAtDel" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="adminName" Type="nvarchar" MaxLength="100" />
+    <Property Name="chairmanName" Type="nvarchar" MaxLength="100" />
+    <Property Name="vchairmanName" Type="nvarchar" MaxLength="100" />
+    <Property Name="hardcopyAttach" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblFamilyIncomeExpense">
+    <Key>
+      <PropertyRef Name="familyIncomeExpenseID" />
+    </Key>
+    <Property Name="familyIncomeExpenseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="familyRegID" Type="int" />
+    <Property Name="type" Type="nchar" MaxLength="1" />
+    <Property Name="particular" Type="nvarchar" MaxLength="255" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="amount" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="tblFamilymemberDetails">
+    <Key>
+      <PropertyRef Name="memberID" />
+    </Key>
+    <Property Name="memberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="familyRegID" Type="int" />
+    <Property Name="educationLevelID" Type="int" />
+    <Property Name="familymembername" Type="nvarchar" MaxLength="100" />
+    <Property Name="memberCivilNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="case" Type="nvarchar" MaxLength="100" />
+    <Property Name="relativerelation" Type="nvarchar" MaxLength="50" />
+    <Property Name="educationalInstitute" Type="nvarchar" MaxLength="255" />
+    <Property Name="memberNotes" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblFamilyPropertyDetails">
+    <Key>
+      <PropertyRef Name="familyPropertyDetailID" />
+    </Key>
+    <Property Name="familyPropertyDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="familyRegID" Type="int" />
+    <Property Name="familyProperty" Type="nvarchar" MaxLength="255" />
+    <Property Name="numOfProperty" Type="int" />
+  </EntityType>
+  <EntityType Name="tblFamilyRegistrations">
+    <Key>
+      <PropertyRef Name="familyRegID" />
+    </Key>
+    <Property Name="familyRegID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="familyRegNumber" Type="int" Nullable="false" />
+    <Property Name="registrationDateHijri" Type="date" />
+    <Property Name="registrationDate" Type="date" />
+    <Property Name="nextUpdationDate" Type="date" />
+    <Property Name="ecoordinate" Type="int" />
+    <Property Name="ncoordinate" Type="int" />
+    <Property Name="tripleNameTribe" Type="nvarchar" MaxLength="100" />
+    <Property Name="dob" Type="date" />
+    <Property Name="relationshipOfKinship" Type="nvarchar" MaxLength="50" />
+    <Property Name="education" Type="nvarchar" MaxLength="50" />
+    <Property Name="civilNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="occupation" Type="nvarchar" MaxLength="50" />
+    <Property Name="socialStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="region" Type="nvarchar" MaxLength="50" />
+    <Property Name="village" Type="nvarchar" MaxLength="50" />
+    <Property Name="numberOfFamilyMember" Type="int" />
+    <Property Name="railwayNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="mosque" Type="nvarchar" MaxLength="100" />
+    <Property Name="houseNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="nationality" Type="nvarchar" MaxLength="50" />
+    <Property Name="officePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="homePhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="whatsapp" Type="nvarchar" MaxLength="50" />
+    <Property Name="bank" Type="nvarchar" MaxLength="100" />
+    <Property Name="accountNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="document" Type="nvarchar" MaxLength="255" />
+    <Property Name="notes" Type="nvarchar(max)" />
+    <Property Name="numberOfOrphan" Type="int" />
+    <Property Name="receiveSubsidy" Type="bit" />
+    <Property Name="subsidyState" Type="nvarchar" MaxLength="255" />
+    <Property Name="numberOfSpecialNeed" Type="int" />
+    <Property Name="supervisorName" Type="nvarchar" MaxLength="100" />
+    <Property Name="supervisorAreaVillage" Type="nvarchar" MaxLength="255" />
+    <Property Name="supervisorPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="supervisorMosque" Type="nvarchar" MaxLength="100" />
+    <Property Name="supervisorObservedData" Type="nvarchar(max)" />
+    <Property Name="familyPerCapitaIncome" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="isFamilyWorthy" Type="bit" />
+    <Property Name="officialNotes" Type="nvarchar(max)" />
+    <Property Name="chairmanName" Type="nvarchar" MaxLength="100" />
+    <Property Name="vchairmanName" Type="nvarchar" MaxLength="100" />
+    <Property Name="hardcopyAttach" Type="nvarchar" MaxLength="255" />
+    <Property Name="status" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="tblFamilySpecialNeeds">
+    <Key>
+      <PropertyRef Name="familySpecialNeedId" />
+    </Key>
+    <Property Name="familySpecialNeedId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="familyRegID" Type="int" />
+    <Property Name="familySpecialneed" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblFamilyTransfers">
+    <Key>
+      <PropertyRef Name="familyTransferID" />
+    </Key>
+    <Property Name="familyTransferID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="familyRegID" Type="int" />
+    <Property Name="transferDate" Type="date" />
+    <Property Name="ecoordinate" Type="int" />
+    <Property Name="ncoordinate" Type="int" />
+    <Property Name="oldRegion" Type="nvarchar" MaxLength="100" />
+    <Property Name="newRegion" Type="nvarchar" MaxLength="100" />
+    <Property Name="oldVillage" Type="nvarchar" MaxLength="100" />
+    <Property Name="newVillage" Type="nvarchar" MaxLength="100" />
+    <Property Name="oldRailNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="newRailNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="oldHomeNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="newHomeNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="oldMosque" Type="nvarchar" MaxLength="100" />
+    <Property Name="newMosque" Type="nvarchar" MaxLength="100" />
+    <Property Name="oldMobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="oldTelephone" Type="nvarchar" MaxLength="50" />
+    <Property Name="newMobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="newTelephone" Type="nvarchar" MaxLength="50" />
+    <Property Name="prevAdmin" Type="nvarchar" MaxLength="50" />
+    <Property Name="prevAdminPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="currentAdmin" Type="nvarchar" MaxLength="50" />
+    <Property Name="currentAdminPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="chairmanName" Type="nvarchar" MaxLength="100" />
+    <Property Name="vchairmanName" Type="nvarchar" MaxLength="100" />
+    <Property Name="electricityAttach" Type="nvarchar" MaxLength="255" />
+    <Property Name="hardcopyAttach" Type="nvarchar" MaxLength="255" />
+    <Property Name="notes" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblSettings">
+    <Key>
+      <PropertyRef Name="settingsID" />
+    </Key>
+    <Property Name="settingsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="settingsName" Type="nvarchar" MaxLength="50" />
+    <Property Name="value" Type="nvarchar" MaxLength="100" />
+    <Property Name="notes" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblUsers">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fname" Type="nvarchar" MaxLength="50" />
+    <Property Name="lname" Type="nvarchar" MaxLength="50" />
+    <Property Name="userName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="password" Type="nvarchar(max)" />
+    <Property Name="isAdmin" Type="bit" />
+  </EntityType>
+  <Association Name="FK_tblFamilyDeletions_tblFamilyRegistrations">
+    <End Role="tblFamilyRegistrations" Type="Self.tblFamilyRegistrations" Multiplicity="0..1" />
+    <End Role="tblFamilyDeletions" Type="Self.tblFamilyDeletions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFamilyRegistrations">
+        <PropertyRef Name="familyRegID" />
+      </Principal>
+      <Dependent Role="tblFamilyDeletions">
+        <PropertyRef Name="familyRegID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFamilyIncomeExpense_tblFamilyRegistrations">
+    <End Role="tblFamilyRegistrations" Type="Self.tblFamilyRegistrations" Multiplicity="0..1" />
+    <End Role="tblFamilyIncomeExpense" Type="Self.tblFamilyIncomeExpense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFamilyRegistrations">
+        <PropertyRef Name="familyRegID" />
+      </Principal>
+      <Dependent Role="tblFamilyIncomeExpense">
+        <PropertyRef Name="familyRegID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFamilymemberDetails_tblEducationLevels">
+    <End Role="tblEducationLevels" Type="Self.tblEducationLevels" Multiplicity="0..1" />
+    <End Role="tblFamilymemberDetails" Type="Self.tblFamilymemberDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEducationLevels">
+        <PropertyRef Name="educationLevelID" />
+      </Principal>
+      <Dependent Role="tblFamilymemberDetails">
+        <PropertyRef Name="educationLevelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFamilymemberDetails_tblFamilyRegistrations">
+    <End Role="tblFamilyRegistrations" Type="Self.tblFamilyRegistrations" Multiplicity="0..1" />
+    <End Role="tblFamilymemberDetails" Type="Self.tblFamilymemberDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFamilyRegistrations">
+        <PropertyRef Name="familyRegID" />
+      </Principal>
+      <Dependent Role="tblFamilymemberDetails">
+        <PropertyRef Name="familyRegID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFamilyPropertyDetails_tblFamilyRegistrations">
+    <End Role="tblFamilyRegistrations" Type="Self.tblFamilyRegistrations" Multiplicity="0..1" />
+    <End Role="tblFamilyPropertyDetails" Type="Self.tblFamilyPropertyDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFamilyRegistrations">
+        <PropertyRef Name="familyRegID" />
+      </Principal>
+      <Dependent Role="tblFamilyPropertyDetails">
+        <PropertyRef Name="familyRegID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFamilySpecialNeeds_tblFamilyRegistrations">
+    <End Role="tblFamilyRegistrations" Type="Self.tblFamilyRegistrations" Multiplicity="0..1" />
+    <End Role="tblFamilySpecialNeeds" Type="Self.tblFamilySpecialNeeds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFamilyRegistrations">
+        <PropertyRef Name="familyRegID" />
+      </Principal>
+      <Dependent Role="tblFamilySpecialNeeds">
+        <PropertyRef Name="familyRegID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFamilyTransfers_tblFamilyRegistrations">
+    <End Role="tblFamilyRegistrations" Type="Self.tblFamilyRegistrations" Multiplicity="0..1" />
+    <End Role="tblFamilyTransfers" Type="Self.tblFamilyTransfers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFamilyRegistrations">
+        <PropertyRef Name="familyRegID" />
+      </Principal>
+      <Dependent Role="tblFamilyTransfers">
+        <PropertyRef Name="familyRegID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AwqafZakatModelsStoreContainer">
+    <EntitySet Name="tblAdminRegistrations" EntityType="Self.tblAdminRegistrations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEducationLevels" EntityType="Self.tblEducationLevels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFamilyDeletions" EntityType="Self.tblFamilyDeletions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFamilyIncomeExpense" EntityType="Self.tblFamilyIncomeExpense" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFamilymemberDetails" EntityType="Self.tblFamilymemberDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFamilyPropertyDetails" EntityType="Self.tblFamilyPropertyDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFamilyRegistrations" EntityType="Self.tblFamilyRegistrations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFamilySpecialNeeds" EntityType="Self.tblFamilySpecialNeeds" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblFamilyTransfers" EntityType="Self.tblFamilyTransfers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSettings" EntityType="Self.tblSettings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblFamilyDeletions_tblFamilyRegistrations" Association="Self.FK_tblFamilyDeletions_tblFamilyRegistrations">
+      <End Role="tblFamilyRegistrations" EntitySet="tblFamilyRegistrations" />
+      <End Role="tblFamilyDeletions" EntitySet="tblFamilyDeletions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFamilyIncomeExpense_tblFamilyRegistrations" Association="Self.FK_tblFamilyIncomeExpense_tblFamilyRegistrations">
+      <End Role="tblFamilyRegistrations" EntitySet="tblFamilyRegistrations" />
+      <End Role="tblFamilyIncomeExpense" EntitySet="tblFamilyIncomeExpense" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFamilymemberDetails_tblEducationLevels" Association="Self.FK_tblFamilymemberDetails_tblEducationLevels">
+      <End Role="tblEducationLevels" EntitySet="tblEducationLevels" />
+      <End Role="tblFamilymemberDetails" EntitySet="tblFamilymemberDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFamilymemberDetails_tblFamilyRegistrations" Association="Self.FK_tblFamilymemberDetails_tblFamilyRegistrations">
+      <End Role="tblFamilyRegistrations" EntitySet="tblFamilyRegistrations" />
+      <End Role="tblFamilymemberDetails" EntitySet="tblFamilymemberDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFamilyPropertyDetails_tblFamilyRegistrations" Association="Self.FK_tblFamilyPropertyDetails_tblFamilyRegistrations">
+      <End Role="tblFamilyRegistrations" EntitySet="tblFamilyRegistrations" />
+      <End Role="tblFamilyPropertyDetails" EntitySet="tblFamilyPropertyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFamilySpecialNeeds_tblFamilyRegistrations" Association="Self.FK_tblFamilySpecialNeeds_tblFamilyRegistrations">
+      <End Role="tblFamilyRegistrations" EntitySet="tblFamilyRegistrations" />
+      <End Role="tblFamilySpecialNeeds" EntitySet="tblFamilySpecialNeeds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFamilyTransfers_tblFamilyRegistrations" Association="Self.FK_tblFamilyTransfers_tblFamilyRegistrations">
+      <End Role="tblFamilyRegistrations" EntitySet="tblFamilyRegistrations" />
+      <End Role="tblFamilyTransfers" EntitySet="tblFamilyTransfers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

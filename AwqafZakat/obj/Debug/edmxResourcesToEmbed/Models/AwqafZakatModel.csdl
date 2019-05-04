@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AwqafZakatModels" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAdminRegistration">
+    <Key>
+      <PropertyRef Name="adminRegistrationID" />
+    </Key>
+    <Property Name="adminRegistrationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="administratorNumber" Type="Int32" Nullable="false" />
+    <Property Name="registrationDateHijri" Type="DateTime" Precision="0" />
+    <Property Name="registrationDate" Type="DateTime" Precision="0" />
+    <Property Name="tripleNameTribe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="civilNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="railNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="homeNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mosqueName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="regionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="supervisorWhatsapp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="supervisorOfficePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="supervisorHomePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="relativeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="relativePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="assistantName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="assistantPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="adminIdCard" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="assistantIdCard" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="chairmanName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="vchairmanName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="hardcopyAttach" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblEducationLevel">
+    <Key>
+      <PropertyRef Name="educationLevelID" />
+    </Key>
+    <Property Name="educationLevelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="educationLevelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblFamilymemberDetails" Relationship="Self.FK_tblFamilymemberDetails_tblEducationLevels" FromRole="tblEducationLevels" ToRole="tblFamilymemberDetails" />
+  </EntityType>
+  <EntityType Name="tblFamilyDeletion">
+    <Key>
+      <PropertyRef Name="familyDeletionID" />
+    </Key>
+    <Property Name="familyDeletionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="familyRegID" Type="Int32" />
+    <Property Name="deletionDate" Type="DateTime" Precision="0" />
+    <Property Name="familyName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="deletionReason" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="familyIncomeAtDel" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="adminName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="chairmanName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="vchairmanName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="hardcopyAttach" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblFamilyRegistration" Relationship="Self.FK_tblFamilyDeletions_tblFamilyRegistrations" FromRole="tblFamilyDeletions" ToRole="tblFamilyRegistrations" />
+  </EntityType>
+  <EntityType Name="tblFamilymemberDetail">
+    <Key>
+      <PropertyRef Name="memberID" />
+    </Key>
+    <Property Name="memberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="familyRegID" Type="Int32" />
+    <Property Name="educationLevelID" Type="Int32" />
+    <Property Name="familymembername" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="memberCivilNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="case" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="relativerelation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="educationalInstitute" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="memberNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblEducationLevel" Relationship="Self.FK_tblFamilymemberDetails_tblEducationLevels" FromRole="tblFamilymemberDetails" ToRole="tblEducationLevels" />
+    <NavigationProperty Name="tblFamilyRegistration" Relationship="Self.FK_tblFamilymemberDetails_tblFamilyRegistrations" FromRole="tblFamilymemberDetails" ToRole="tblFamilyRegistrations" />
+  </EntityType>
+  <EntityType Name="tblFamilyPropertyDetail">
+    <Key>
+      <PropertyRef Name="familyPropertyDetailID" />
+    </Key>
+    <Property Name="familyPropertyDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="familyRegID" Type="Int32" />
+    <Property Name="familyProperty" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="numOfProperty" Type="Int32" />
+    <NavigationProperty Name="tblFamilyRegistration" Relationship="Self.FK_tblFamilyPropertyDetails_tblFamilyRegistrations" FromRole="tblFamilyPropertyDetails" ToRole="tblFamilyRegistrations" />
+  </EntityType>
+  <EntityType Name="tblFamilyRegistration">
+    <Key>
+      <PropertyRef Name="familyRegID" />
+    </Key>
+    <Property Name="familyRegID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="familyRegNumber" Type="Int32" Nullable="false" />
+    <Property Name="registrationDateHijri" Type="DateTime" Precision="0" />
+    <Property Name="registrationDate" Type="DateTime" Precision="0" />
+    <Property Name="nextUpdationDate" Type="DateTime" Precision="0" />
+    <Property Name="ecoordinate" Type="Int32" />
+    <Property Name="ncoordinate" Type="Int32" />
+    <Property Name="tripleNameTribe" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="dob" Type="DateTime" Precision="0" />
+    <Property Name="relationshipOfKinship" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="education" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="civilNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="socialStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="region" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="village" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="numberOfFamilyMember" Type="Int32" />
+    <Property Name="railwayNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mosque" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="houseNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="officePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="homePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="whatsapp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bank" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="accountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="document" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="numberOfOrphan" Type="Int32" />
+    <Property Name="receiveSubsidy" Type="Boolean" />
+    <Property Name="subsidyState" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="numberOfSpecialNeed" Type="Int32" />
+    <Property Name="supervisorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="supervisorAreaVillage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="supervisorPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="supervisorMosque" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="supervisorObservedData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="familyPerCapitaIncome" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="isFamilyWorthy" Type="Boolean" />
+    <Property Name="officialNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="chairmanName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="vchairmanName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="hardcopyAttach" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="tblFamilyDeletions" Relationship="Self.FK_tblFamilyDeletions_tblFamilyRegistrations" FromRole="tblFamilyRegistrations" ToRole="tblFamilyDeletions" />
+    <NavigationProperty Name="tblFamilymemberDetails" Relationship="Self.FK_tblFamilymemberDetails_tblFamilyRegistrations" FromRole="tblFamilyRegistrations" ToRole="tblFamilymemberDetails" />
+    <NavigationProperty Name="tblFamilyPropertyDetails" Relationship="Self.FK_tblFamilyPropertyDetails_tblFamilyRegistrations" FromRole="tblFamilyRegistrations" ToRole="tblFamilyPropertyDetails" />
+    <NavigationProperty Name="tblFamilySpecialNeeds" Relationship="Self.FK_tblFamilySpecialNeeds_tblFamilyRegistrations" FromRole="tblFamilyRegistrations" ToRole="tblFamilySpecialNeeds" />
+    <NavigationProperty Name="tblFamilyTransfers" Relationship="Self.FK_tblFamilyTransfers_tblFamilyRegistrations" FromRole="tblFamilyRegistrations" ToRole="tblFamilyTransfers" />
+    <NavigationProperty Name="tblFamilyIncomeExpenses" Relationship="AwqafZakatModels.FK_tblFamilyIncomeExpense_tblFamilyRegistrations" FromRole="tblFamilyRegistration" ToRole="tblFamilyIncomeExpense" />
+  </EntityType>
+  <EntityType Name="tblFamilySpecialNeed">
+    <Key>
+      <PropertyRef Name="familySpecialNeedId" />
+    </Key>
+    <Property Name="familySpecialNeedId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="familyRegID" Type="Int32" />
+    <Property Name="familySpecialneed" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblFamilyRegistration" Relationship="Self.FK_tblFamilySpecialNeeds_tblFamilyRegistrations" FromRole="tblFamilySpecialNeeds" ToRole="tblFamilyRegistrations" />
+  </EntityType>
+  <EntityType Name="tblFamilyTransfer">
+    <Key>
+      <PropertyRef Name="familyTransferID" />
+    </Key>
+    <Property Name="familyTransferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="familyRegID" Type="Int32" />
+    <Property Name="transferDate" Type="DateTime" Precision="0" />
+    <Property Name="ecoordinate" Type="Int32" />
+    <Property Name="ncoordinate" Type="Int32" />
+    <Property Name="oldRegion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="newRegion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="oldVillage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="newVillage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="oldRailNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="newRailNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="oldHomeNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="newHomeNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="oldMosque" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="newMosque" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="oldMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="oldTelephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="newMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="newTelephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="prevAdmin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="prevAdminPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="currentAdmin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="currentAdminPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="chairmanName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="vchairmanName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="electricityAttach" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="hardcopyAttach" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblFamilyRegistration" Relationship="Self.FK_tblFamilyTransfers_tblFamilyRegistrations" FromRole="tblFamilyTransfers" ToRole="tblFamilyRegistrations" />
+  </EntityType>
+  <Association Name="FK_tblFamilymemberDetails_tblEducationLevels">
+    <End Role="tblEducationLevels" Type="Self.tblEducationLevel" Multiplicity="0..1" />
+    <End Role="tblFamilymemberDetails" Type="Self.tblFamilymemberDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEducationLevels">
+        <PropertyRef Name="educationLevelID" />
+      </Principal>
+      <Dependent Role="tblFamilymemberDetails">
+        <PropertyRef Name="educationLevelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFamilyDeletions_tblFamilyRegistrations">
+    <End Role="tblFamilyRegistrations" Type="Self.tblFamilyRegistration" Multiplicity="0..1" />
+    <End Role="tblFamilyDeletions" Type="Self.tblFamilyDeletion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFamilyRegistrations">
+        <PropertyRef Name="familyRegID" />
+      </Principal>
+      <Dependent Role="tblFamilyDeletions">
+        <PropertyRef Name="familyRegID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFamilymemberDetails_tblFamilyRegistrations">
+    <End Role="tblFamilyRegistrations" Type="Self.tblFamilyRegistration" Multiplicity="0..1" />
+    <End Role="tblFamilymemberDetails" Type="Self.tblFamilymemberDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFamilyRegistrations">
+        <PropertyRef Name="familyRegID" />
+      </Principal>
+      <Dependent Role="tblFamilymemberDetails">
+        <PropertyRef Name="familyRegID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFamilyPropertyDetails_tblFamilyRegistrations">
+    <End Role="tblFamilyRegistrations" Type="Self.tblFamilyRegistration" Multiplicity="0..1" />
+    <End Role="tblFamilyPropertyDetails" Type="Self.tblFamilyPropertyDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFamilyRegistrations">
+        <PropertyRef Name="familyRegID" />
+      </Principal>
+      <Dependent Role="tblFamilyPropertyDetails">
+        <PropertyRef Name="familyRegID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFamilySpecialNeeds_tblFamilyRegistrations">
+    <End Role="tblFamilyRegistrations" Type="Self.tblFamilyRegistration" Multiplicity="0..1" />
+    <End Role="tblFamilySpecialNeeds" Type="Self.tblFamilySpecialNeed" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFamilyRegistrations">
+        <PropertyRef Name="familyRegID" />
+      </Principal>
+      <Dependent Role="tblFamilySpecialNeeds">
+        <PropertyRef Name="familyRegID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblFamilyTransfers_tblFamilyRegistrations">
+    <End Role="tblFamilyRegistrations" Type="Self.tblFamilyRegistration" Multiplicity="0..1" />
+    <End Role="tblFamilyTransfers" Type="Self.tblFamilyTransfer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFamilyRegistrations">
+        <PropertyRef Name="familyRegID" />
+      </Principal>
+      <Dependent Role="tblFamilyTransfers">
+        <PropertyRef Name="familyRegID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AwqafZakatEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAdminRegistrations" EntityType="Self.tblAdminRegistration" />
+    <EntitySet Name="tblEducationLevels" EntityType="Self.tblEducationLevel" />
+    <EntitySet Name="tblFamilyDeletions" EntityType="Self.tblFamilyDeletion" />
+    <EntitySet Name="tblFamilymemberDetails" EntityType="Self.tblFamilymemberDetail" />
+    <EntitySet Name="tblFamilyPropertyDetails" EntityType="Self.tblFamilyPropertyDetail" />
+    <EntitySet Name="tblFamilyRegistrations" EntityType="Self.tblFamilyRegistration" />
+    <EntitySet Name="tblFamilySpecialNeeds" EntityType="Self.tblFamilySpecialNeed" />
+    <EntitySet Name="tblFamilyTransfers" EntityType="Self.tblFamilyTransfer" />
+    <AssociationSet Name="FK_tblFamilymemberDetails_tblEducationLevels" Association="Self.FK_tblFamilymemberDetails_tblEducationLevels">
+      <End Role="tblEducationLevels" EntitySet="tblEducationLevels" />
+      <End Role="tblFamilymemberDetails" EntitySet="tblFamilymemberDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFamilyDeletions_tblFamilyRegistrations" Association="Self.FK_tblFamilyDeletions_tblFamilyRegistrations">
+      <End Role="tblFamilyRegistrations" EntitySet="tblFamilyRegistrations" />
+      <End Role="tblFamilyDeletions" EntitySet="tblFamilyDeletions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFamilymemberDetails_tblFamilyRegistrations" Association="Self.FK_tblFamilymemberDetails_tblFamilyRegistrations">
+      <End Role="tblFamilyRegistrations" EntitySet="tblFamilyRegistrations" />
+      <End Role="tblFamilymemberDetails" EntitySet="tblFamilymemberDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFamilyPropertyDetails_tblFamilyRegistrations" Association="Self.FK_tblFamilyPropertyDetails_tblFamilyRegistrations">
+      <End Role="tblFamilyRegistrations" EntitySet="tblFamilyRegistrations" />
+      <End Role="tblFamilyPropertyDetails" EntitySet="tblFamilyPropertyDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFamilySpecialNeeds_tblFamilyRegistrations" Association="Self.FK_tblFamilySpecialNeeds_tblFamilyRegistrations">
+      <End Role="tblFamilyRegistrations" EntitySet="tblFamilyRegistrations" />
+      <End Role="tblFamilySpecialNeeds" EntitySet="tblFamilySpecialNeeds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblFamilyTransfers_tblFamilyRegistrations" Association="Self.FK_tblFamilyTransfers_tblFamilyRegistrations">
+      <End Role="tblFamilyRegistrations" EntitySet="tblFamilyRegistrations" />
+      <End Role="tblFamilyTransfers" EntitySet="tblFamilyTransfers" />
+    </AssociationSet>
+    <EntitySet Name="tblUsers" EntityType="AwqafZakatModels.tblUser" />
+    <EntitySet Name="tblFamilyIncomeExpenses" EntityType="AwqafZakatModels.tblFamilyIncomeExpense" />
+    <EntitySet Name="tblSettings" EntityType="AwqafZakatModels.tblSetting" />
+    <AssociationSet Name="FK_tblFamilyIncomeExpense_tblFamilyRegistrations" Association="AwqafZakatModels.FK_tblFamilyIncomeExpense_tblFamilyRegistrations">
+      <End Role="tblFamilyRegistration" EntitySet="tblFamilyRegistrations" />
+      <End Role="tblFamilyIncomeExpense" EntitySet="tblFamilyIncomeExpenses" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="userName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="isAdmin" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblFamilyIncomeExpense">
+    <Key>
+      <PropertyRef Name="familyIncomeExpenseID" />
+    </Key>
+    <Property Name="familyIncomeExpenseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="familyRegID" Type="Int32" />
+    <Property Name="type" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+    <Property Name="particular" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="amount" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="tblFamilyRegistration" Relationship="AwqafZakatModels.FK_tblFamilyIncomeExpense_tblFamilyRegistrations" FromRole="tblFamilyIncomeExpense" ToRole="tblFamilyRegistration" />
+  </EntityType>
+  <EntityType Name="tblSetting">
+    <Key>
+      <PropertyRef Name="settingsID" />
+    </Key>
+    <Property Name="settingsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="settingsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="value" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_tblFamilyIncomeExpense_tblFamilyRegistrations">
+    <End Type="AwqafZakatModels.tblFamilyRegistration" Role="tblFamilyRegistration" Multiplicity="0..1" />
+    <End Type="AwqafZakatModels.tblFamilyIncomeExpense" Role="tblFamilyIncomeExpense" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblFamilyRegistration">
+        <PropertyRef Name="familyRegID" />
+      </Principal>
+      <Dependent Role="tblFamilyIncomeExpense">
+        <PropertyRef Name="familyRegID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

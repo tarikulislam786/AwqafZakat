@@ -1,0 +1,410 @@
+﻿
+@{
+    Layout = null;
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Users/Login");
+    }
+}
+
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Open+Sans|Raleway" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/bootstrap.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/jquery-ui.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/material-bootstrap-wizard.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/font-awesome.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/style.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")alertifyjs/alertify.min.css">
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")alertifyjs/themes/default.min.css">
+</head>
+
+<body id="top" data-spy="scroll" dir="rtl">
+    <!--top header-->
+    <header id="home">
+        <section class="top-nav hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="top-left" style="float:right;margin-top: 10px;margin-bottom: 0px;">
+                            <ul>
+
+                                <li><img src="@Url.Content("~/Content/mytemplate/")images/awaqaf.png" /></li>
+                                <li><img src="@Url.Content("~/Content/mytemplate/")images/sentence.png" /></li>
+                                <li><img src="@Url.Content("~/Content/mytemplate/")images/download.png" /></li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header> <!--end header-->
+
+
+    <div>
+        <div class="form-area">
+            <div class="container" style="max-width:1100px;padding: 20px 20px 20px 20px;background:#ebeff2">
+                <div class="row" style="margin-bottom:20px;">
+                    <!-- content load dinamically -->
+                    <div class="col-sm-10">
+                        @RenderBody()
+                    </div>
+                    <!-- content load dinamically -->
+                    <div class="col-sm-2">
+                        <div class="sidebar-nav">
+                            <div class="navbar navbar-default" role="navigation">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <span class="visible-xs navbar-brand">Sidebar menu</span>
+                                </div>
+                                <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li @(ViewContext.RouteData.Values["action"].ToString().Equals("Index") ? "class= activex" : "" )><a href="@Url.Action("Index", "Home")">الصفحة الرئيسية</a></li>
+                                        <li @(ViewContext.RouteData.Values["action"].ToString().Equals("FamilyReg") ? "class=activex" : "" )><a href="@Url.Action("FamilyReg", "FamilyRegistrations")">تسجيل الأسرة</a></li>
+                                        <li @(ViewContext.RouteData.Values["action"].ToString().Equals("Transfer") ? "class=activex" : "" )><a href="@Url.Action("Transfer", "FamilyTransfers")">نقل أسرة</a></li>
+                                        <li @(ViewContext.RouteData.Values["action"].ToString().Equals("FamilyDel") ? "class=activex" : "" )><a href="@Url.Action("FamilyDel", "FamilyDeletions")">حذف أسرة</a></li>
+                                        <li @(ViewContext.RouteData.Values["action"].ToString().Equals("AdminReg") ? "class=activex" : "" )><a href="@Url.Action("AdminReg", "AdminRegistrations")">تسجيــل مشــرف</a></li>
+                                        <li @(ViewContext.RouteData.Values["action"].ToString().Equals("AdminReg") ? "class=activex" : "" )><a href="@Url.Action("FamilyRegSingleReport", "Reports")">تقارير single</a></li>
+                                        <li @(ViewContext.RouteData.Values["action"].ToString().Equals("AdminReg") ? "class=activex" : "" )><a href="@Url.Action("familyRegReport", "Reports")">تقارير</a></li>
+                                        <li @(ViewContext.RouteData.Values["action"].ToString().Equals("Index") ? "class=activex" : "" )><a href="@Url.Action("Index", "Settings")">Settings</a></li>
+                                        <li><a href="@Url.Action("LogOut", "Users")">Logout</a></li>
+                                    </ul>
+                                </div><!--/.nav-collapse -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!--bottom footer-->
+    <div id="bottom-footer" class="hidden-xs" style="padding-bottom: 10px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="footer-left">
+                        <div class="credits">
+                            <h3 style="font-weight:bold;font-size: 18px;">www.zakatseeb.net &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-map"></i></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="footer-left">
+
+                        <div class="credits">
+                            <h3 style="font-weight:bold;font-size: 18px;text-align:center">zakatseeb@gmail.com &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope"></i></h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="footer-left">
+                        <h3 style="font-weight:bold;font-size: 18px;text-align:center">92475055  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-phone"></i></h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!--bottom footer end -->
+    <!-- jQuery -->
+    <script type="text/javascript" src="@Url.Content("~/Content/mytemplate/")js/jquery-2.2.4.min.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/jquery.min.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/mytemplate/")js/jquery.bootstrap.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/mytemplate/")js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/mytemplate/")js/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/mytemplate/")js/material-bootstrap-wizard.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/easyResponsiveTabs.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/script.js"></script>
+
+    <script src="@Url.Content("~/Content/mytemplate/")js/jquery-ui.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/moment.min.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/bootstrap-datetimepicker.min.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/hijricalendar.js"></script>
+    <script src="@Url.Content("~/Content/mytemplate/")js/alertify.min.js"></script>
+    @*<script type="text/javascript">
+                $(document).ready(function () {
+                    $('#horizontalTab').easyResponsiveTabs({
+                        type: 'default', //Types: default, vertical, accordion
+                        width: 'auto', //auto or any width like 600px
+                        fit: true   // 100% fit in a container
+                    });
+                });
+        </script>*@
+    @*<script type="text/javascript">
+            $(function () {
+                $("#receiveSubsidy").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#subsidystate").show();
+                } else {
+                    $("#subsidystate").hide();
+                }
+            });
+            /* $("#familyspecialneedhave").click(function () {
+                if ($(this).is(":checked")) {
+                    $("#specialneeds").show();
+                } else {
+                    $("#specialneeds").hide();
+                }
+            }); */
+            });
+        </script>*@
+    @*<script>
+        $(document).on('keyup','input.incomeamount',function(){
+         var add = 0;
+                        $(".incomeamount").each(function() {
+                            add += Number($(this).val());
+                        });
+                        $("#totalincome").text(add);
+                        $(".totalHouseholdIncome").val(add);
+        });
+        $(document).on('keyup','input.expenseamount',function(){
+         var add = 0;
+                        $(".expenseamount").each(function() {
+                            add += Number($(this).val());
+                        });
+                        $("#totalexpense").text(add);
+                        $(".totalHouseholdExpense").val(add);
+        });
+
+            </script>*@
+    <!-- Age Calculator script -->
+    @*<script>
+              $(function () {
+                $("#dob").datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    showAnim: 'slideDown',
+                    dateFormat: 'yy-mm-dd'
+                }).on('change', function () {
+                    var age = getAge(this);
+                    $('#age').val(age);
+                   // console.log(age);
+                    //alert(age);
+
+                });
+
+                function getAge(dateVal) {
+                    var
+                        birthday = new Date(dateVal.value),
+                        today = new Date(),
+                        ageInMilliseconds = new Date(today - birthday),
+                        years = ageInMilliseconds / (24 * 60 * 60 * 1000 * 365.25 ),
+                        months = 12 * (years % 1),
+                        days = Math.floor(30 * (months % 1));
+                   // return Math.floor(years) + ' years ' + Math.floor(months) + ' months ' + days + ' days';
+                   return Math.floor(years);
+
+                }
+        });
+            </script>*@
+    @*<script>
+           $(function () {
+                     $("#registrationDate,#transferDate,#deletionDate,#nextUpdationDate").datepicker({ dateFormat: 'yy-mm-dd' }).data('datepicker');
+           });
+        </script>*@
+    @*<script>
+                            $("#registrationDateHijri").datepicker({
+                                dateFormat: 'yy-mm-dd',
+                                beforeShow: addhijridate,
+                                onChangeMonthYear: addhijridate,
+                                beforeShowDay: function (date) {
+                                    var title = "" + getwriteIslamicDate(0, date, "day")
+                                    return [true, "", title];
+                                }
+                            });
+                            addhijridate();
+        </script>*@
+    @*<script>
+                            // ImageShow script
+                            function ShowImagePreview(imageUploader, previewImage) {
+                                if (imageUploader.files && imageUploader.files[0]) {
+                                    var reader = new FileReader();
+                                    reader.onload = function (e) {
+                                        $(previewImage).attr('src', e.target.result);
+                                    }
+                                    reader.readAsDataURL(imageUploader.files[0]);
+                                }
+                            }
+        </script>*@
+    <script>
+        $(function () {
+            var SuccessMessage = '@TempData["SuccessMessage"]'
+            var ErrorMessage = '@TempData["ErrorMessage"]'
+
+            if (SuccessMessage != '')
+                alertify.success(SuccessMessage);
+
+            if (ErrorMessage != '')
+                alertify.error(ErrorMessage);
+        });
+    </script>
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)*@
+
+    @*<script>
+        $(document).ready(function () {
+            $("#searchBtn").click(function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+
+                var searchBy = $("#searchBy").val();
+               // alert(searchBy);
+                var searchValue = $("#txtSearch").val();
+               // alert(searchValue);
+               // var setData = $(".form-horizontal");
+                // setData.html("");
+                $.ajax({
+                    type: "post",
+                    url: "/FamilyDeletions/GetSearchingData?searchBy=" + searchBy + "&searchValue=" + searchValue,
+                   // contentType: "html",
+                    contentType: "json",
+                    success: function (result) {
+                        if (result.length > 0) {
+                            $.each(result, function (index, value) {
+                               // alert(value.registrationDateHijri);
+                               // $("#registrationDateHijri").text(value.registrationDateHijri);
+                                $("#registrationDateHijri").val(value.registrationDateHijri);
+                                $("#familyRegID").val(value.familyRegID);
+                                $("#civilNumber").val(value.civilNumber);
+                                $("#area").val(value.region);
+                                $("#railNumber").val(value.railwayNumber);
+                                $("#homeNumber").val(value.homePhone);
+                                $("#oldHomeNumber").val(value.homePhone);
+                                $("#nearestMosque").val(value.mosque);
+                                $("#familyIncomeAtReg").val(value.familyPerCapitaIncome);
+                                $("#nearestMosque").val(value.mosque);
+
+
+
+                                $("#ecoordinate").val(value.ecoordinate);
+                                $("#ncoordinate").val(value.ncoordinate);
+                                $("#tripleNameTribe").val(value.tripleNameTribe);
+                                $("#oldRegion").val(value.region);
+                                $("#oldVillage").val(value.village);
+                                $("#oldRailNumber").val(value.railwayNumber);
+                                $("#oldHomeNumber").val(value.houseNumber);
+                                $("#oldMosque").val(value.mosque);
+                                $("#oldMobile").val(value.homePhone);
+                                $("#oldTelephone").val(value.officePhone);
+                            });
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("Invalid ID number");
+                        $("#registrationDateHijri").val("");
+                        $("#familyRegID").val("");
+                        $("#civilNumber").val("");
+                        $("#area").val("");
+                        $("#railNumber").val("");
+                        $("#homeNumber").val("");
+                        $("#nearestMosque").val("");
+                        $("#familyIncomeAtReg").val("");
+                        $("#nearestMosque").val("");
+
+
+                        $("#ecoordinate").val("");
+                        $("#ncoordinate").val("");
+                        $("#tripleNameTribe").val("");
+                        $("#oldRegion").val("");
+                        $("#oldVillage").val("");
+                        $("#oldRailNumber").val("");
+                        $("#oldHomeNumber").val("");
+                        $("#oldMosque").val("");
+                        $("#oldMobile").val("");
+                        $("#oldTelephone").val("");
+                    }
+
+
+
+                });
+            });
+        });
+        </script>*@
+    @*<script>
+        $(document).ready(function (e) {
+            $("#searchBtnTransfer").click(function () {
+                e.stopPropagation();
+                e.preventDefault();
+
+                var searchBy = $("#searchBy").val();
+               // alert(searchBy);
+                var searchValue = $("#txtSearch").val();
+               // alert(searchValue);
+               // var setData = $(".form-horizontal");
+                // setData.html("");
+                $.ajax({
+                    type: "post",
+                    url: "/FamilyTransfers/GetSearchingData?searchBy=" + searchBy + "&searchValue=" + searchValue,
+                   // contentType: "html",
+                    contentType: "json",
+                    success: function (result) {
+                        if (result.length > 0) {
+                            $.each(result, function (index, value) {
+                               // alert(value.registrationDateHijri);
+                               // $("#registrationDateHijri").text(value.registrationDateHijri);
+                                $("#registrationDateHijri").val(value.registrationDateHijri);
+                                $("#familyRegID").val(value.familyRegID);
+                                $("#ecoordinate").val(value.ecoordinate);
+                                $("#ncoordinate").val(value.ncoordinate);
+                                $("#tripleNameTribe").val(value.tripleNameTribe);
+                                $("#oldRegion").val(value.region);
+                                $("#oldVillage").val(value.village);
+                                $("#oldRailNumber").val(value.railwayNumber);
+                                $("#oldHomeNumber").val(value.houseNumber);
+                                $("#oldMosque").val(value.mosque);
+                                $("#oldMobile").val(value.homePhone);
+                                $("#oldTelephone").val(value.officePhone);
+                                //$("prevAdmin").val(value.ncoordinate);
+                                //$("prevAdminPhone").val(value.ncoordinate);
+
+
+                            });
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("Invalid ID number");
+                        $("#registrationDateHijri").val("");
+                        $("#familyRegID").val("");
+                        $("ecoordinate").val("");
+                        $("ncoordinate").val("");
+                        $("tripleNameTribe").val("");
+                        $("oldRegion").val("");
+                        $("oldVillage").val("");
+                        $("oldRailNumber").val("");
+                        $("oldHomeNumber").val("");
+                        $("oldMosque").val("");
+                        $("oldMobile").val("");
+                        $("oldTelephone").val("");
+                    }
+
+
+
+                });
+            });
+        });
+        </script>*@
+</body>
+</html>

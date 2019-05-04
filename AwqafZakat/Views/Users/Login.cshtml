@@ -1,0 +1,172 @@
+﻿@model AwqafZakat.Models.tblUser
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Content/mytemplate/css/login.css" rel="stylesheet" />
+    <link href="~/Content/mytemplate/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/mytemplate/")css/bootstrap.min.css">
+    <link href="~/Content/mytemplate/css/animate.css" rel="stylesheet" />
+    <link href="~/Content/mytemplate/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        #login-div {
+            /*position:absolute;
+            left:40%;
+            top:40%;*/
+            width: 500px;
+            /*margin: 90px auto;*/
+            float:right;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+        }
+
+        .fifty-fifty {
+            width: 48%;
+            float: left;
+        }
+
+        .fifty-container {
+            width: 100%;
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+
+        .bg {
+            background-image: url(../../AppFiles/Images/bg.png);
+        }
+    </style>
+</head>
+<body class="bg" id="top">
+    <!--top header-->
+    <header id="home">
+        <section class="top-nav hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="top-left" style="float:right;margin-top: 10px;margin-bottom: 0px;">
+                            <ul>
+
+                                <li><img src="@Url.Content("~/Content/mytemplate/")images/download.png" /></li>
+                                <li><img src="@Url.Content("~/Content/mytemplate/")images/sentence.png" /></li>
+                                
+                                <li><img src="@Url.Content("~/Content/mytemplate/")images/awaqaf.png" /></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header> <!--end header-->
+    <div>
+        <div class="form-area">
+            <div class="container" style="max-width:1100px;padding: 20px 20px 20px 20px;background:#fff">
+                <div class="row" style="margin-bottom:20px;">
+                    <div class="col-sm-10">
+                        <div id="login-div" class="triggerAnimation animated fadeInUp">
+                            @using (Html.BeginForm("Authorize", "Users", FormMethod.Post, new { @class = "comment-form" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="triggerAnimation animated bounceIn">
+                                    <h2 style="text-align:left;color:#1ab5b3;font-size: 17pt;"> Login </h2>
+
+                                </div>
+                                <div class="form-horizontal">
+                                    <div class="float-input">
+                                        @Html.EditorFor(model => model.userName)
+                                        <span><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <div class="validationmessage" style="padding-top: 10px;padding-bottom: 10px;">
+                                        @Html.ValidationMessageFor(model => model.userName)
+                                    </div>
+
+                                    @*<div class="form-group">
+                            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+                                    <div class="float-input">
+                                        @Html.EditorFor(model => model.password)
+                                        <span><i class="fa fa-key"></i></span>
+                                    </div>
+                                    <div class="validationmessage" style="padding-top: 10px;padding-bottom: 10px;">
+                                        @Html.ValidationMessageFor(model => model.password)
+                                    </div>
+                                    <div class="validationmessage" style="padding-bottom: 10px;">
+                                        <label class="field-validation-error">
+                                            @Html.DisplayFor(model => model.LoginErrorMessage)
+                                        </label>
+                                    </div>
+                                    <div class="fifty-container">
+                                        <div class="fifty-fifty triggerAnimation animated fadeInLeft" style="margin-right:4%">
+                                            <input type="submit" value="Login" id="submit_contact" class="main-button" />
+                                        </div>
+                                        <div class="fifty-fifty triggerAnimation animated fadeInRight">
+                                            <input type="reset" value="Clear" class="main-button" />
+                                        </div>
+                                    </div>
+                                    @*<div class="form-group">
+                            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+                                    <div style="float: right;">
+                                        <h2 style="text-align:right;color:#1ab5b3"><a style ="color: #000;font-size: 15pt;text-decoration: none;" href="@Url.Action("Registration", "Users")">Registration </a></h2>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--bottom footer-->
+    <div id="bottom-footer" class="hidden-xs" style="padding-bottom: 10px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="footer-left">
+                        <div class="credits">
+                            <h3 style="font-weight:bold;font-size: 18px;">www.zakatseeb.net &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-map"></i></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="footer-left">
+
+                        <div class="credits">
+                            <h3 style="font-weight:bold;font-size: 18px;text-align:center">zakatseeb@gmail.com &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-envelope"></i></h3>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="footer-left">
+                        <h3 style="font-weight:bold;font-size: 18px;text-align:center">92475055  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-phone"></i></h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!--bottom footer end -->
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>

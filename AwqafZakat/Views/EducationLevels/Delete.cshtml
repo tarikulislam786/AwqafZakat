@@ -1,0 +1,34 @@
+﻿@model AwqafZakat.Models.tblEducationLevel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<h3>
+    @*Are you sure you want to delete this @Html.DisplayNameFor(model => model.educationLevelName)?*@
+    Are you sure you want to delete this @Html.DisplayNameFor(model => model.educationLevelName) @Html.DisplayFor(model => model.educationLevelName)?
+
+</h3>
+<div>
+
+    @using (Html.BeginForm("Delete", "EducationLevels", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="form-group">
+            <div class="col-sm-7"></div>
+            <div class="col-sm-3">
+                <div class="btn btn-default" style="color:black">
+                    @Html.ActionLink("Cancel", "Index")
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <input type="submit" value="Delete" class="btn btn-default" />
+            </div>
+        </div>
+
+
+    }
+</div>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AwqafZakat.Models.tblSetting>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<div class="reg-title" style="margin-bottom:20px;">
+    <h3>Settings</h3>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Add")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.settingsID)
+        </th>*@
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.settingsName)
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.value)
+        </th>
+        <th style="text-align:right">
+            @Html.DisplayNameFor(model => model.notes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.settingsID)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.settingsName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.notes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.settingsID }) 
+            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+            @*@Html.ActionLink("Delete", "Delete", new { id = item.settingsID })*@
+        </td>
+    </tr>
+}
+
+</table>
